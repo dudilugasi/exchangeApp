@@ -1,0 +1,13 @@
+c:\users\dudi\documents\visual studio 2013\Projects\exchangeApp\exchangeApp\bin\Debug\exchangeApp.exe.config
+C:\Users\dudi\Documents\Visual Studio 2013\Projects\exchangeApp\exchangeApp\obj\Debug\exchangeApp.csprojResolveAssemblyReference.cache
+C:\Users\dudi\Documents\Visual Studio 2013\Projects\exchangeApp\exchangeApp\obj\Debug\MainWindow.baml
+C:\Users\dudi\Documents\Visual Studio 2013\Projects\exchangeApp\exchangeApp\obj\Debug\MainWindow.g.cs
+C:\Users\dudi\Documents\Visual Studio 2013\Projects\exchangeApp\exchangeApp\obj\Debug\App.g.cs
+C:\Users\dudi\Documents\Visual Studio 2013\Projects\exchangeApp\exchangeApp\obj\Debug\exchangeApp_MarkupCompile.cache
+C:\Users\dudi\Documents\Visual Studio 2013\Projects\exchangeApp\exchangeApp\obj\Debug\exchangeApp.g.resources
+C:\Users\dudi\Documents\Visual Studio 2013\Projects\exchangeApp\exchangeApp\obj\Debug\exchangeApp.Properties.Resources.resources
+C:\Users\dudi\Documents\Visual Studio 2013\Projects\exchangeApp\exchangeApp\obj\Debug\exchangeApp.csproj.GenerateResource.Cache
+C:\Users\dudi\Documents\Visual Studio 2013\Projects\exchangeApp\exchangeApp\bin\Debug\exchangeApp.exe
+C:\Users\dudi\Documents\Visual Studio 2013\Projects\exchangeApp\exchangeApp\bin\Debug\exchangeApp.pdb
+C:\Users\dudi\Documents\Visual Studio 2013\Projects\exchangeApp\exchangeApp\obj\Debug\exchangeApp.exe
+C:\Users\dudi\Documents\Visual Studio 2013\Projects\exchangeApp\exchangeApp\obj\Debug\exchangeApp.pdb
