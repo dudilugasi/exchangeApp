@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace exchangeApp
 {
+    /// <summary>
+    /// this class describes a currency
+    /// </summary>
     class Currency
     {
         private string _name;
@@ -14,7 +17,14 @@ namespace exchangeApp
         private string _code;
         private double _rate;
         
-
+        /// <summary>
+        /// currency constructor
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="unit"></param>
+        /// <param name="country"></param>
+        /// <param name="code"></param>
+        /// <param name="rate"></param>
         public Currency(string name,int unit,string country,string code,double rate)
         {
             this.Name = name;
@@ -24,11 +34,19 @@ namespace exchangeApp
             this.Rate = rate;
         }
 
+        /// <summary>
+        /// an implicit casting operator from currency to its double valued rate
+        /// </summary>
+        /// <param name="ob"> the currency to be cast to double</param>
+        /// <returns> a double value</returns>
         public static implicit operator double(Currency ob)
         {
             return ob._rate;
         }
 
+        /// <summary>
+        /// this property refers to the currency name
+        /// </summary>
         public string Name
         {
             get {return _name;}
@@ -45,6 +63,9 @@ namespace exchangeApp
             }
         }
 
+        /// <summary>
+        /// this property refers to the currency unit
+        /// </summary>
         public int Unit
         {
             get {return _unit;}
@@ -61,6 +82,9 @@ namespace exchangeApp
             }
         }
 
+        /// <summary>
+        /// this property refers to the currency country
+        /// </summary>
         public string Country
         {
             get {return _country;}
@@ -77,6 +101,9 @@ namespace exchangeApp
             }
         }
 
+        /// <summary>
+        /// this property refers to the currency country code
+        /// </summary>
         public string Code
         {
             get {return _code;}
@@ -93,6 +120,9 @@ namespace exchangeApp
             }
         }
 
+        /// <summary>
+        /// this property refers to the currency rate
+        /// </summary>
         public double Rate
         {
             get {return _rate;}
@@ -109,8 +139,11 @@ namespace exchangeApp
             }
         }
 
-        
 
+        /// <summary>
+        /// override the ToString method 
+        /// </summary>
+        /// <returns>string describing the currency</returns>
         public override string ToString() 
         {
             return "name = " + _name + ", unit = " + _unit + ", code = " + _code + ", country = " + _country + ", rate = " + _rate;

@@ -8,9 +8,17 @@ using System.Threading.Tasks;
 
 namespace exchangeApp
 {
+    /// <summary>
+    /// this class implements the IBankIsraelParser interface 
+    /// </summary>
     class BankIsraelParser : IBankIsraelParser
     {
 
+        /// <summary>
+        /// connect to the BOI web server to get all the currency
+        /// </summary>
+        /// <returns>a dictionary conatining all the currencies</returns>
+        /// <exception cref="ExchangeAppException">if there is a problem connecting to the server an exception will be thrown</exception>
         public Dictionary<string, Currency> GetCurrenciesFromWS()
         {
             try
@@ -42,6 +50,13 @@ namespace exchangeApp
 
         }
 
+        /// <summary>
+        /// this method convert any amount from one currency to another
+        /// </summary>
+        /// <param name="from">the currency from which we need to convert</param>
+        /// <param name="to">the currency to which we need to convert</param>
+        /// <param name="amount">the amount of money to be converted</param>
+        /// <returns>the amount of money after convertion</returns>
         public double Convert(Currency from, Currency to, double amount)
         {
             return (amount * from.Rate / from.Unit) / (to.Rate / to.Unit);

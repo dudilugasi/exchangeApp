@@ -21,7 +21,11 @@ namespace exchangeApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// this is the model that conatins the data
+        /// </summary>
         CurrenciesModel model = new CurrenciesModel();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -35,12 +39,20 @@ namespace exchangeApp
             }
             catch (ExchangeAppException e)
             {
+                //if the data is not available the buttons get disabled
                 convertButton.IsEnabled = false;
                 codesComboBox.IsEnabled = false;
                 MessageBox.Show("Problem Loading The Currencies");
             }
         }
 
+        /// <summary>
+        /// this method handles the conversion click
+        /// it takes the text from the amount and the text from the combobox
+        /// and activates the convert method in the model
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             
@@ -58,6 +70,12 @@ namespace exchangeApp
                 
         }
 
+
+        /// <summary>
+        /// this method reload the data from the model
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void reloadButton_Click(object sender, RoutedEventArgs e)
         {
             try
