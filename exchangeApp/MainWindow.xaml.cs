@@ -25,27 +25,57 @@ namespace exchangeApp
         public MainWindow()
         {
             InitializeComponent();
-            ObservableCollection<Currency> listOfValues = new ObservableCollection<Currency>(model.Currencies);
-            ObservableCollection<string> listOfKeys = new ObservableCollection<string>(model.Codes);
-            currenciesList.DataContext = listOfValues;
-            codesComboBox.ItemsSource = listOfKeys;
+            try
+            {
+                model.LoadCurrencies();
+                ObservableCollection<Currency> listOfValues = new ObservableCollection<Currency>(model.Currencies);
+                ObservableCollection<string> listOfKeys = new ObservableCollection<string>(model.Codes);
+                currenciesList.DataContext = listOfValues;
+                codesComboBox.ItemsSource = listOfKeys;
+            }
+            catch (ExchangeAppException e)
+            {
+                convertButton.IsEnabled = false;
+                codesComboBox.IsEnabled = false;
+                MessageBox.Show("Problem Loading The Currencies");
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            
             string fromCoode = codesComboBox.Text;
-            double amount = Double.Parse(amountTextBox.Text);
-            Currency fromCurrency = model.GetCurrencyByCode(fromCoode);
-            resultTextBox.Text = System.Convert.ToString(model.Convert(fromCurrency, model.Shekel, amount));       
+            double amount;
+            if (Double.TryParse(amountTextBox.Text,out amount))
+            {
+                Currency fromCurrency = model.GetCurrencyByCode(fromCoode);
+                resultTextBox.Text = System.Convert.ToString(model.Convert(fromCurrency, model.Shekel, amount));   
+            }
+            else
+            {
+                MessageBox.Show("please enter a valid amount");
+            }
+                
         }
 
-        
-
-
-        
-
-        
-
-        
+        private void reloadButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                model.LoadCurrencies();
+                ObservableCollection<Currency> listOfValues = new ObservableCollection<Currency>(model.Currencies);
+                ObservableCollection<string> listOfKeys = new ObservableCollection<string>(model.Codes);
+                currenciesList.DataContext = listOfValues;
+                codesComboBox.ItemsSource = listOfKeys;
+                convertButton.IsEnabled = true;
+                codesComboBox.IsEnabled = true;
+            }
+            catch (ExchangeAppException e1)
+            {
+                convertButton.IsEnabled = false;
+                codesComboBox.IsEnabled = false;
+                MessageBox.Show("Problem Loading The Currencies");
+            }
+        }     
     }
 }

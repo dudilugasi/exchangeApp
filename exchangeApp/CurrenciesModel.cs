@@ -8,15 +8,16 @@ namespace exchangeApp
 {
     class CurrenciesModel
     {
-        private Dictionary<string, Currency> _currencies;
+        private Dictionary<string, Currency> _currencies = new Dictionary<string, Currency>();
         private Currency _shekel = new Currency("Shekel", 1, "Israel", "NIS", 1);
-        private IBankIsraelParser _parser;
+        private IBankIsraelParser _parser = new BankIsraelParser();
+        delegate Dictionary<string, Currency> GetDictionary();
 
-        public CurrenciesModel()
+        public void LoadCurrencies()
         {
-            _currencies = new Dictionary<string, Currency>();
-            _parser = new BankIsraelParser();
-            _currencies = _parser.GetCurrenciesFromWS();
+            GetDictionary ob = _parser.GetCurrenciesFromWS;
+            IAsyncResult asyncCall = ob.BeginInvoke(null, null);
+            _currencies = ob.EndInvoke(asyncCall);
         }
 
         public IEnumerator<Currency> GetEnumerator()

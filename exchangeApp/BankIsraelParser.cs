@@ -35,7 +35,7 @@ namespace exchangeApp
                 }
                 return currenciesDictionary;
             }
-            catch (XmlException e)
+            catch (Exception e)
             {
                 throw new ExchangeAppException("problem loading XML file");
             }

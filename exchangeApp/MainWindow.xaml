@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Exchange App" Height="350" Width="525">
     <Grid>
-        <ListView Name="currenciesList" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" Visibility="Visible" Height="158" Margin="10,10,24,0" VerticalAlignment="Top" ItemsSource="{Binding}">
+        <ListView Name="currenciesList" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" Visibility="Visible"
+ Height="158" Margin="10,35,24,0" VerticalAlignment="Top" ItemsSource="{Binding}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Country" DisplayMemberBinding="{Binding Path=Country}" Width="80"/>
@@ -21,7 +22,8 @@
         <TextBox x:Name="resultTextBox" HorizontalAlignment="Left" Height="28" Margin="309,226,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100"/>
         <Label Content="amount" HorizontalAlignment="Left" Height="28" Margin="190,198,0,0" VerticalAlignment="Top" Width="100"/>
         <Label Content="result" HorizontalAlignment="Left" Height="28" Margin="309,198,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="Convert" HorizontalAlignment="Left" Margin="241,276,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Button x:Name="convertButton" Content="Convert" HorizontalAlignment="Left" Margin="241,276,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
         <Label Content="NIS" HorizontalAlignment="Left" Height="28" Margin="423,226,0,0" VerticalAlignment="Top" Width="70"/>
+        <Button x:Name="reloadButton" Content="Reload" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="reloadButton_Click"/>
     </Grid>
 </Window>
