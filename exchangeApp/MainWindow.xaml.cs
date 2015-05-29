@@ -26,12 +26,19 @@ namespace exchangeApp
         /// </summary>
         CurrenciesModel model = new CurrenciesModel();
 
+        /// <summary>
+        /// this delegate is for loading the data from the xml asynchronously
+        /// </summary>
+        delegate void LoadData();
+
         public MainWindow()
         {
-            InitializeComponent();
             try
             {
-                model.LoadCurrencies();
+                LoadData dele = model.LoadCurrencies;
+                IAsyncResult asyncCall = dele.BeginInvoke(null, null);
+                InitializeComponent();
+                dele.EndInvoke(asyncCall);
                 ObservableCollection<Currency> listOfValues = new ObservableCollection<Currency>(model.Currencies);
                 ObservableCollection<string> listOfKeys = new ObservableCollection<string>(model.Codes);
                 currenciesList.DataContext = listOfValues;
@@ -39,6 +46,7 @@ namespace exchangeApp
             }
             catch (ExchangeAppException e)
             {
+                InitializeComponent();
                 //if the data is not available the buttons get disabled
                 convertButton.IsEnabled = false;
                 codesComboBox.IsEnabled = false;
@@ -80,7 +88,9 @@ namespace exchangeApp
         {
             try
             {
-                model.LoadCurrencies();
+                LoadData dele = model.LoadCurrencies;
+                IAsyncResult asyncCall = dele.BeginInvoke(null, null);
+                dele.EndInvoke(asyncCall);
                 ObservableCollection<Currency> listOfValues = new ObservableCollection<Currency>(model.Currencies);
                 ObservableCollection<string> listOfKeys = new ObservableCollection<string>(model.Codes);
                 currenciesList.DataContext = listOfValues;

@@ -21,9 +21,7 @@ namespace exchangeApp
         /// </summary>
         public void LoadCurrencies()
         {
-            GetDictionary ob = _parser.GetCurrenciesFromWS;
-            IAsyncResult asyncCall = ob.BeginInvoke(null, null);
-            _currencies = ob.EndInvoke(asyncCall);
+            _currencies = _parser.GetCurrenciesFromWS();
         }
 
         /// <summary>
